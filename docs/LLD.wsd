@@ -1,0 +1,52 @@
+@startuml "Lower Level Diagrams"
+
+package com.example.travel.agency.app {
+
+    class Passenger {
+        balance
+        id
+        membershipTier
+        name
+        passengerNumber
+        signedUpActivities
+        signupForActivity(): boolean
+        getMembershipTier(): MembershipTier
+    }
+
+
+    class TravelPackage {
+        id
+        itinerary
+        name
+        passengerCapacity
+        passengers
+        addDestination(): void
+    }
+
+    class Activity {
+        id
+        name
+        description
+        cost
+        capacity
+        destination
+        participate(): boolean
+        isCapacityFull(): boolean
+
+    }
+
+    class Destination {
+        id
+        name
+        activities
+    }
+
+    enum MembershipTier {
+        STANDARD = 1
+        Gold = 2
+        PREMIUM = 3
+    }
+
+    scale 1
+}
+@enduml

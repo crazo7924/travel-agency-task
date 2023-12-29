@@ -1,0 +1,37 @@
+plugins {
+	id 'java-library'
+	id 'jacoco'
+}
+
+group = 'com.example.travel.agency'
+version = '0.1.0'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks {
+
+	test {
+		
+		useJUnitPlatform()
+		testLogging {
+			events "passed"
+		}
+		finalizedBy jacocoTestReport
+	}
+
+	jacocoTestReport {
+
+		dependsOn test
+	}
+}

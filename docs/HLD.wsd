@@ -1,0 +1,8 @@
+@startuml "Higher Level Diagram"
+
+Passenger:->TravelPackage
+Passenger:-->Activity
+TravelPackage:-->Destination
+Destination:-->Activity
+
+@enduml
