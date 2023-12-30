@@ -14,12 +14,9 @@ class Passenger {
     private List<Activity> signedUpActivities;
 
     /**
-     * Constructs an object with the following parameters.
-     * Note that id is meant to be auto-generated (if not set) and then assigned
-     *
      * @param name            The human-readable name
-     * @param passengerNumber The contact number
-     * @param tier            the {@link MembershipTier}
+     * @param passengerNumber The number of this passenger
+     * @param tier            the {@link MembershipTier} this passenget holds
      */
     public Passenger(String name, int passengerNumber, MembershipTier tier) {
         this.name = name;
@@ -33,6 +30,11 @@ class Passenger {
         return id;
     }
 
+    /**
+     * @apiNote Note that the id is meant to be auto-generated (if not set) and then
+     *          assigned.
+     * @param id the unique id of this passenger.
+     */
     public void setId(int id) {
         this.id = id;
     }
@@ -80,16 +82,15 @@ class Passenger {
      *         deduction considering the discount amount according to the
      *         {@link MembershipTier} and checking for the activity's capacity.
      */
-    public boolean signUpForActivity(Activity activity) {
+    public void signUpForActivity(Activity activity) throws RuntimeException {
         double cost = activity.getCost();
         double discountedCost = cost * (1.0 - membershipTier.getDiscount());
         if ((balance - discountedCost) < 0) {
-            return false;
+            throw new InsufficientBalanceException(this);
         }
-        if(activity.participate())
-            signedUpActivities.add(activity);
-        else return false;
-        return true;
+        activity.participate();
+        balance -= discountedCost;
+        signedUpActivities.add(activity);
     }
 
     @Override

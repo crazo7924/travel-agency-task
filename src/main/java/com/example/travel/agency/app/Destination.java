@@ -8,12 +8,20 @@ class Destination {
     private String name;
     private List<Activity> activities;
 
+    /**
+     * @param name The human-readable name of this destination meant for displaying
+     *             at the front-end side.
+     * 
+     */
     public Destination(String name) {
         this.name = name;
         this.activities = new ArrayList<>();
     }
 
-    // Add activity to the destination
+    /**
+     * @param activity The activity to be added and that is unique to this
+     *                 destination.
+     */
     public void addActivity(Activity activity) {
         activities.add(activity);
     }
@@ -22,6 +30,11 @@ class Destination {
         return id;
     }
 
+    /**
+     * @apiNote Note that the id is meant to be auto-generated (if not set) and then
+     *          assigned.
+     * @param id the unique id of this destination.
+     */
     public void setId(int id) {
         this.id = id;
     }

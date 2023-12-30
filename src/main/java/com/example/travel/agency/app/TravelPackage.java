@@ -19,6 +19,11 @@ class TravelPackage {
         return id;
     }
 
+    /**
+     * @apiNote Note that the id is meant to be auto-generated (if not set) and then
+     *          assigned.
+     * @param id the unique id of this travel package.
+     */
     public void setId(int id) {
         this.id = id;
     }
@@ -31,10 +36,16 @@ class TravelPackage {
         this.name = name;
     }
 
+    /**
+     * @return the list of destinations associated with this travel package.
+     */
     public List<Destination> getItinerary() {
         return itinerary;
     }
 
+    /**
+     * @return the list of passengers who signed up for this travel package.
+     */
     public List<Passenger> getPassengers() {
         return passengers;
     }

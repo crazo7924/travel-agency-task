@@ -28,6 +28,11 @@ class Activity {
         return id;
     }
 
+    /**
+     * @apiNote Note that the id is meant to be auto-generated (if not set) and then
+     *          assigned.
+     * @param id the unique id of this activity.
+     */
     public void setId(int id) {
         this.id = id;
     }
@@ -52,12 +57,17 @@ class Activity {
         return capacity;
     }
 
-    public boolean participate() {
+    /**
+     * Attempts to occupy and thereby reduce this Activity's capacity.
+     * 
+     * @throws CapacityFullException when the capacity is full. @see
+     *                               {@link #isCapacityFull}
+     */
+    public void participate() throws CapacityFullException {
         if (isCapacityFull())
-            return false;
-        capacity--;
-        return true;
-
+            throw new CapacityFullException(this);
+        else
+            capacity--;
     }
 
     public Destination getDestination() {
@@ -68,6 +78,13 @@ class Activity {
         this.destination = destination;
     }
 
+    /**
+     * Checks if the current capacity is zero.
+     * This is equivalent to comparing the value of {@link #getCapacity} with zero.
+     * 
+     * @return a boolean value indicating if this Activity can be participated in or
+     *         not.
+     */
     public boolean isCapacityFull() {
         return capacity == 0;
     }
