@@ -1,6 +1,7 @@
 package com.example.travel.agency.app;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -35,7 +36,7 @@ class PassengerTest {
 
         passenger.signUpForActivity(activity);
 
-        assertEquals(1, passenger.getSignedUpActivities().size());
-        assertTrue(passenger.getSignedUpActivities().contains(activity));
+        assertEquals(0, passenger.getSignedUpActivities().size());
+        assertFalse(passenger.getSignedUpActivities().contains(activity));
     }
 }

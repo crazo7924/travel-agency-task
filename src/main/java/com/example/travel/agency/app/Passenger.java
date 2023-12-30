@@ -1,5 +1,6 @@
 package com.example.travel.agency.app;
 
+import java.util.ArrayList;
 import java.util.List;
 
 class Passenger {
@@ -15,7 +16,7 @@ class Passenger {
     /**
      * Constructs an object with the following parameters.
      * Note that id is meant to be auto-generated (if not set) and then assigned
-     * 
+     *
      * @param name            The human-readable name
      * @param passengerNumber The contact number
      * @param tier            the {@link MembershipTier}
@@ -23,8 +24,8 @@ class Passenger {
     public Passenger(String name, int passengerNumber, MembershipTier tier) {
         this.name = name;
         this.passengerNumber = passengerNumber;
-
         this.membershipTier = tier;
+        this.signedUpActivities = new ArrayList<>();
 
     }
 
