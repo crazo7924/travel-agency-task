@@ -28,8 +28,6 @@ Follow the instructions based on your OS
 
 #### *nix based OS
 ```sh
-# to allow running this file as an executable
-chmod +x gradlew
 ./gradlew build
 ```
 
@@ -39,9 +37,14 @@ The tests are written using JUnit Jupiter (v5).\
 To run them do the following:
 
 ```sh
+[.\]gradlew[.bat] test
+```
+
+OR
+
+```sh
 ./gradlew test
 ```
 
 Copyright &copy; 2023-24 Bharat Dev Burman
 
-SPDX-License-Identifier: Apache-2.0
