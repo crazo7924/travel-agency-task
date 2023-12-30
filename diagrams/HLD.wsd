@@ -1,8 +1,17 @@
 @startuml "Higher Level Diagram"
 
-Passenger:->TravelPackage
-Passenger:-->Activity
-TravelPackage:-->Destination
-Destination:-->Activity
+Passenger "0..*    " -u-o "many" Activity
+
+TravelPackage "1  " o-l- "  many" Destination
+
+TravelPackage "1" o-- "many" Passenger
+
+Destination "1   " --* "many" Activity
+
+Activity "1" --o "1  " Destination
+
+Passenger "   1..*" -d--o "many" Destination
+
+scale 3/2
 
 @enduml

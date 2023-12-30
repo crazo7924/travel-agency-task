@@ -9,7 +9,7 @@ package com.example.travel.agency.app {
         name
         passengerNumber
         signedUpActivities
-        signupForActivity(): boolean
+        signupForActivity(): void
         getMembershipTier(): MembershipTier
     }
 
@@ -30,7 +30,7 @@ package com.example.travel.agency.app {
         cost
         capacity
         destination
-        participate(): boolean
+        participate(): void
         isCapacityFull(): boolean
 
     }

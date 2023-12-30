@@ -45,6 +45,15 @@ OR
 ```sh
 ./gradlew test
 ```
+---
+### Higher level Diagram
 
-Copyright &copy; 2023-24 Bharat Dev Burman
+![Higher Level Diagram](diagrams/HLD.png)
+
+### Lower Level Diagram
+![Lower Level Diagram](diagrams/LLD.png)
+
+(_generated using PlantUML and its plugin in VS Code_)
+
+Copyright &copy; 2023 Bharat Dev Burman
 
